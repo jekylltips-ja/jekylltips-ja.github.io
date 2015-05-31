@@ -2,22 +2,25 @@
 title: Collections
 order: 10
 ---
-Next up we're looking at [Collections](http://jekyllrb.com/docs/collections/). Collections are a great way of organizing related content. They behave in a similar way to Posts but don't require a date.
+次は、[Collections](http://jekyllrb.com/docs/collections/)を見ていきましょう。
+Collectionsはコンテンツの関係性をまとめるための、すばらしい方法です。Postsと動作は似ていますが、日付を必要としません。
 
-We're going to use a Collection on our Services page to reduce the repetition of HTML.
+Servicesページ内で、HTMLの繰り返しを減らすために、Collectionを使っていきましょう。
 
-Each service is formatted in a similar way. There's an image, title and description. The icons for the Service page come from a font at the moment, we'll change this to an image so our client can easily upload one themselves.
+各サービスは同じようなパターンの形式をしています。画像があり、タイトルと説明があります。
+現時点ではServiceページのアイコンはフォントですので、クライアントの方が自身で簡単に更新できるよう、画像に変更しましょう。
 
-First we need tell Jekyll about the collection. Add the following to `_config.yml`:
+まず、Jekyllにコレクションについて伝える必要があります。`_config.yml`に以下を追加してください:
 
 {% highlight yaml %}
 collections:
   - services
 {% endhighlight %}
 
-Now create a folder in the root of the website called `_services` (Remember if you're working on CloudCannon you need to create a file first, then move it to the folder).
+そして、`_services`というフォルダをウェブサイトルートに作成してください。
+（CloudCannonで編集している場合は、まずファイルをつくってからフォルダに移動させるんでしたね。覚えておいてください。）
 
-Inside add a file called `web_design.md` with the following content:
+フォルダのなかに、`web_design.md`というファイルを以下の内容で作成してください:
 
 {% highlight text %}
 ---
@@ -28,23 +31,25 @@ image_path: ""
 Beautiful, clean designs tailored to your business
 {% endhighlight %}
 
-We're defining the properties of the service using Front Matter, then writing the description in Markdown.
+Front Matterを使って、サービスの情報を定義し、マークダウンファイルに説明を書いていきます。
 
-Head over to the Collections tab in CloudCannon, you'll see it's detected the Services collection.
+CloudCannonのCollectionsタブに移動すると、Servecesコレクションがあることがわかるでしょう。
 
 ![Collections](/img/guide/collections/collections.png)
 
-Open up our Web Design item. You can easily manage this service using the visual editor. Let's add an image to Web Design. I'm going to use a free flat icon set you can [download here](/flaticons_squidink.zip).
+Web Designの項目を開きましょう。ビジュアルエディタを使って、簡単に項目を管理できます。
+Web Designに画像を追加しましょう。[こちらでダウンロードできる](/flaticons_squidink.zip)無料のフラットアイコンセットを使っていきましょう。
 
-Click **Add Image Path** and upload an appropriate icon.
+**Add Image Path**をクリックして、適切なアイコンをアップロードしましょう。
 
 ![Add Image](/img/guide/collections/add_image.png)
 
-Go ahead and add three more services. I added **Content Writing**, **SEO** and **Social Media Marketing**.
+続けてもう3つのサービスも追加しましょう。**Content Writing**、**SEO**、**Social Media Marketing**を追加しました。
 
-Now we just need to display the services in `services.html`. Jekyll makes the services collection available to us using the variable `site.services`.
+次に、`services.html`でこれらのサービスを表示させる必要があります。
+Jekyllでは、`site.services`という変数を使うことで、サービスコレクションが使えるようになります。
 
-Let's replace the existing static services HTML with some Liquid which iterates over all the services and outputs the details:
+Liquidと全てのサービスに対する繰り返し処理を使って、現在の静的なHTMLを置き換え、詳細を表示しましょう:
 
 {% highlight html %}
 {% raw %}
@@ -62,9 +67,10 @@ Let's replace the existing static services HTML with some Liquid which iterates 
 {% endraw %}
 {% endhighlight %}
 
-It's really simple, we just have a for loops which iterates over `site.services`. Then we can output the Front Matter variables we set before.
+とてもシンプルですね。`site.services`に対して、forループの繰り返し処理を行っただけです。
+これによって、さきほど作成したFront Matterの変数を出力することができます。
 
-The whole `services.html` file looks like this now:
+`services.html`の全体像は、現在以下のようなになります:
 {% highlight html %}
 {% raw %}
 ---
@@ -104,6 +110,6 @@ title: Services
 {% endraw %}
 {% endhighlight %}
 
-That's it! Now our client can easily manage the services on the website using Collections.
+これだけです！これで、クライアントはCollectionsを使い、簡単にサイトを管理できるようになります。
 
 ![Final](/img/guide/collections/final.png)
