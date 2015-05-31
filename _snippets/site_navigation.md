@@ -7,7 +7,7 @@ title: Site Navigation
 category: Pages
 ---
 
-Dynamically generates a list of links to pages with `layout: page` in the front matter, sorted alphabetically by URL.
+Front Matterに`layout: page`が書かれているページを使って、動的にリンクを生成します。URL名からアルファベット順に並びます。
 
 {% highlight liquid %}
 {% raw %}

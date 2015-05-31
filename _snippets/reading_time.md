@@ -7,7 +7,7 @@ title: Reading Time
 category: Posts
 ---
 
-Paste within a post layout. Change `content` to `page.content` if used within a layout file.
+postレイアウトに貼り付けてください。レイアウトファイル内で使う場合は`content`を`page.content`に変えてください。
 
 {% highlight liquid %}
 {% raw %}

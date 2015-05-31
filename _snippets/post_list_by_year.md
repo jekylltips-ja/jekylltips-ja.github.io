@@ -7,7 +7,7 @@ title: Post List by Year
 category: Posts
 ---
 
-Displays a list of posts broken down by year.
+年だけに分解して、記事一覧に表示します。
 
 {% highlight html %}
 {% raw %}

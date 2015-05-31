@@ -7,7 +7,8 @@ title: Post List Pagination
 category: Posts
 ---
 
-Shows `<span>` elements for non-linked pages and `<a>` elements for active links. Automatically accounts for Jekyll's pagination problem where there is no `page1` with a special `if` statement (for when `page == 2`).
+ページにリンクしていない`<span>`要素か、リンクが有効な`<a>`要素を表示します。
+`page1`が無いというJekyllのページネーションの問題を、特別な`if`文（`page == 2`のとき）を使って自動で解決しています。
 
 {% highlight html %}
 {% raw %}
