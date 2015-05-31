@@ -1,37 +1,45 @@
 ---
 title : CMS and Hosting
+title_ja: CMSとホスティング
 order: 8
 ---
 
-[CloudCannon](http://cloudcannon.com) is a service which provides a CMS for Jekyll websites, they also provide hosting. We're going to use CloudCannon to allow our client to update the website.
+[CloudCannon](http://cloudcannon.com)はJekyllサイトのためにCMS機能を提供するサービスです。
+彼らはホスティングも提供しています。クライアントがウェブサイトを更新できるよう、CloudCannonを使っていきましょう。
 
-**Important**: CloudCannon detects that it's a Jekyll website by looking for a `/_config.yml` file. Create `_config.yml` in the website root (it can be empty for now) and push it to GitHub.
+**大切なこと**: CloudCannonは`/_config.yml`ファイルがあるかどうかで、Jekyllサイトがどうか判断しています。
+`_config.yml`をウェブサイトルートに作成して（現在は空でも大丈夫です）、GitHubにpushしましょう。
 
-Head over to [CloudCannon](http://cloudcannon.com), sign up for a free account and create a website.
+[CloudCannon](http://cloudcannon.com)にアクセスし、無料アカウントを作成し、ウェブサイトを作成しましょう。
 
-![Create Site](/img/guide/cms/create_site.png)
+![サイトを作成](/img/guide/cms/create_site.png)
 
-This brings up the file browser for the site. There are no files at the moment so let's add some! Click the **connect storage provider** button.
+これでサイトのファイルブラウザが表示されます。現在はファイルが無いので追加していきましょう！
+**connect storage provider**ボタンをクリックしてください。
 
-![Dashboard](/img/guide/cms/dashboard.png)
+![ダッシュボード](/img/guide/cms/dashboard.png)
 
-We want to sync files from our repository so click **Connect** next to GitHub and allow CloudCannon access to your account.
+先ほどのリポジトリを同期したいので、GitHubという文字の横の**Connect**をクリックして、CloudCannonがあなたのGitHubアカウントにアクセスできるよう許可してください。
 
 ![Connect](/img/guide/cms/connect.png)
 
-Connect the repository for the website.
+ウェブサイトのリポジトリと連携します。
 
 ![Repo](/img/guide/cms/repo.png)
 
-CloudCannon will pull in your files and display them in the file browser. Any updates you make in CloudCannon sync back to GitHub and any changes you push to GitHub sync to CloudCannon.
+CloudCannonはあなたのファイルをpullし、ファイルブラウザに表示するでしょう。
+CloudCannonで行った変更はすべてGitHubに反映され、またGitHubにpushしたすべての変更もCloudCannonに反映されます。
 
 ![Files](/img/guide/cms/files.png)
 
-Now we have the files on CloudCannon, it's time to add updatable regions. Click on `index.html`, this brings up the site in preview. You can navigate around the website in this view. Click on the **Code Editor** view to bring up the source code of the site.
+今、CloudCannonにファイルがあります。いよいよ更新できるエリアを作成しましょう。
+`index.html`をクリックすると、サイトのプレビューが表示されます。このプレビューでウェブサイト中を移動できます。
+**Code Editor**をクリックし、サイトのソースコードを表示させましょう。
 
 ![Preview](/img/guide/cms/preview.png)
 
-We set the editable regions by adding a class of **editable** to elements in the HTML. Let's make the headings on the index page editable:
+HTMLの要素に**editable**暮らすを追加することで、編集可能なエリアを作成することができます。
+index pageの見出しにeditableを付けてみましょう:
 
 {% highlight html %}
 <header>
@@ -46,16 +54,20 @@ We set the editable regions by adding a class of **editable** to elements in the
 </header>
 {% endhighlight %}
 
-The context you put the editable class is important. If you wanted to give more control to the client you could add the class to the `div`. Then they'd be able to add more headings, lists, images etc.
+editableクラスを追加する場所は重要です。もし、クライアントにもう少しコントロール権を与えたければ`div`にクラスを付けます。
+すると、クライアントはさらに見出しや、箇条書き、画像などを追加できます。
 
-Go to the **Visual Editor** view. The elements with the editable class have a yellow box around them indicating they're editable. Try clicking on an editable region and making an update inline.
+**Visual Editor**に切り替えましょう。editableクラスをつけた要素は、編集できることを示すように、黄色い箱に囲まれています。
+編集可能なエリアをクリックし、変更を加えてみましょう。
 
 ![Visual Editor](/img/guide/cms/visual.png)
 
-CloudCannon pushes your website live to a testing domain of `*.cloudvent.net`. On the free plan the website isn't public, we need to add a password before we can view it. Go to **Site Settings**, then **Site Password** and type in a password for your website.
+CloudCannonはサイトを閲覧できるよう`*.cloudvent.net`というテストドメインを提供します。
+無料プランでは公開状態にできず、閲覧するにはパスワードの設定が必要です。
+**Site Setting**に移動し、**Site Password**にてサイトのパスワードを設定しましょう。
 
 ![Password](/img/guide/cms/password.png)
 
-Click on the cloudvent domain at the top of the page, enter your password. Our site is now live on the internet!
+ページ上部のcloudventドメインをクリックし、パスワードを入力しましょう。ウェブサイトはインターネットで動いています！
 
 ![Cloudvent](/img/guide/cms/cloudvent.png)
