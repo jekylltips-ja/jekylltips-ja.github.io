@@ -1,16 +1,19 @@
 ---
 title: Photo Gallery
+title_ja: フォトギャラリー
 order: 11
 ---
-Displaying content in a particular order isn't always easy with Collections. Sure, if you want to sort alphabetically it's simple but what if we want to define the ordering?
+Collectionsを使って、特定の順番でコンテンツを表示させることは、そう簡単ではありません。
+もちろん、アルファベット順に並べたい場合ならシンプルですが、順番を決めたいときはどうすればよいでしょうか？
 
-One option would be to have an order or weight variable in the Front Matter of your collection items and sort based on that. We're going to do it another way: using a YAML array.
+コレクションのFront Matterで順序や重み付けをした変数を使い、並べ替える、という方法も1つあるでしょう。しかし、別の方法を使いましょう: YAMLの配列です。
 
-The Portfolio page seems like a good place to try this out. We want our client to manage items in the portfolio and manage the order.
+Portfolioページは、この方法を使うよい機会です。クライアントにPortfolioページ内で項目や順序を管理させたいですね。
 
-Open `portfolio.html` and you'll see a block of HTML repeating for each item in the portfolio. As you might of noticed we're trying to remove all repetition on this website to make it easier to maintain.
+`portfolio.html`を開くと、ポートフォリオ内の各項目のためのHTML要素が繰り返されているのがわかるでしょう。
+お気づきのように、メンテナンスしやすいよう、サイトから重複を削除していきましょう。
 
-First we'll add the portfolio data to the Front Matter:
+まず、Front Matterにポートフォリオのデータを追加します:
 
 {% highlight yaml %}
 ---
@@ -46,8 +49,10 @@ portfolio:
 {% endhighlight %}
 
 This sets an array called `portfolio`. Each item in the array has a hash which has four keys: `image_path`, `category`, `project` and `url`.
+この配列のセットを`portfolio`と名付けます。
+配列内のそれぞれの項目は、このような4つのキーを持つハッシュで構成されています: `image_path`、`category`、`project`そして`url`です。
 
-Let's replace the repeating HTML with Liquid which iterates over the Front Matter items:
+Front Matterの項目に対して、Liquidの繰り返し処理を使い、HTMLの重複を置き換えていきましょう:
 
 {% highlight html %}
 {% raw %}
@@ -73,7 +78,7 @@ Let's replace the repeating HTML with Liquid which iterates over the Front Matte
 {% endraw %}
 {% endhighlight %}
 
-So now `portfolio.html` looks like this:
+現在、`portfolio.html`はこのような感じです:
 {% highlight html %}
 {% raw %}
 ---
@@ -137,8 +142,8 @@ portfolio:
 {% endraw %}
 {% endhighlight %}
 
-Go to the **Visual Editor**, this what our client will see. In the **Settings** sidebar click **Update Portfolios**.
+**Visual Editor**に移動すると、クライアントは以下のものを確認するでしょう。**Settings**サイドバーの**Update Portfolios**をクリックです。
 
-You can reorder, delete, update and add new Portfolio items from here.
+順番を入れ替えたり、削除したり、更新、そしてここから新しいポートフォリオ項目を追加できます。
 
 ![Settings](/img/guide/photogallery/settings.png)
