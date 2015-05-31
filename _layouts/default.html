@@ -3,7 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>{{ page.title }} - Jekyll Tips</title>
+		<title>{% if page.title_ja %}{{ page.title_ja }}{% else %}{{ page.title }}{% endif %} - Jekyll Tips</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="generator" content="Jekyll v{{ jekyll.version }}">
 

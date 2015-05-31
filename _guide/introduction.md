@@ -1,5 +1,6 @@
 ---
-title: はじめに
+title: Introduction
+title_ja: はじめに
 order: 1
 permalink: /
 ---

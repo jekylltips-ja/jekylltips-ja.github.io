@@ -21,7 +21,7 @@ layout: default
 		{% endif %}
 
 		<article class="content">
-			<h2>{{ page.title }}</h2>
+			<h2>{% if page.title_ja %}{{ page.title_ja }}{% else %}{{ page.title }}{% endif %}</h2>
 			{{ content }}
 
 			{% include disqus.html %}
