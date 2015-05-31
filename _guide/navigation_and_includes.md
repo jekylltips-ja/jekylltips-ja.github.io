@@ -1,13 +1,16 @@
 ---
 title: Navigation and Includes
+title_ja: ナビゲーションとインクルード
 order: 6
 ---
 
-Let's build out the rest of the website. This template is a single page website, let's turn it into multiple pages. Create an HTML page for each link in the navigation. You'll end up with `about.html`, `services.html`, `portfolio.html` and `contact.html` in the root of your website.
+ウェブサイトの残りを作成していきましょう。このテンプレートはシングルページウェブサイトですので、複数ページのサイトに変更していきましょう。
+ナビゲーションに各ページへのリンクを追加するために、HTMLページを作成します。
+ウェブサイトのルートで`about.html`、`services.html`、`portfolio.html`そして`contact.html`の作成を済ませてください。
 
-These new pages are looking a bit empty so let's add some content.
+今作成した新しいページは空っぽなので、内容を少し追加しましょう。
 
-Cut the about section from `index.html` and paste it into `about.html`.
+`index.html`から、aboutセクションを切り取り、`about.html`に貼り付けましょう。
 
 {% highlight html %}
 {% raw %}
@@ -26,7 +29,7 @@ Cut the about section from `index.html` and paste it into `about.html`.
 {% endraw %}
 {% endhighlight %}
 
-We'll also add a heading and Front Matter. Now `about.html` looks like this:
+先頭にFront Matterも追加しましょう。`about.html`はこんな感じです:
 
 {% highlight html %}
 {% raw %}
@@ -55,11 +58,13 @@ title: About
 {% endraw %}
 {% endhighlight %}
 
-Do this for the other pages too.
+他のページにも同様のことを行ってください。
 
-Now we need to get the navigation working. We want to link to the correct pages and highlight the current page in the navigation. This is going to get a little complex so let's put the navigation into its own file. First create an `_includes` folder in the root of your website. Inside it create a file called `nav.html`.
+次はナビゲーションを機能させる必要があります。正しいページにリンクされており、ナビゲーションで現在のページがハイライトされるようにしたいですね。
+これは少しだけ複雑になってしまうので、ナビゲーション専用のページを作って、そのなかに記述しましょう。
+まず、`_includes`フォルダをウェブサイトルートに作成してください。そのなかに、`nav.html`を作成しましょう。
 
-Find the `<nav>` element in `default.html` and copy it to `nav.html`.
+`default.html`内の`<nav>`要素を探し、`nav.html`にコピーしてください。
 
 {% highlight html %}
 {% raw %}
@@ -100,9 +105,10 @@ Find the `<nav>` element in `default.html` and copy it to `nav.html`.
 {% endraw %}
 {% endhighlight %}
 
-Let's fix up the links in `nav.html`. We need the href to point to the correct page. We can also get rid of the class of `page-scroll` now that each section is on a different page.
+`nav.html`のリンクを修正しましょう。hrefの値を正しいページヘのリンク先にする必要があります。
+各セクションは、それぞれ別ページになるので`page-scroll`というクラスは削除できます。
 
-Here's how I did the about link in `nav.html`.
+`nav.html`のaboutページヘのリンクはこのようになりました。
 
 {% highlight html %}
 {% raw %}
@@ -114,9 +120,9 @@ Here's how I did the about link in `nav.html`.
 {% endraw %}
 {% endhighlight %}
 
-Do this for all the links.
+全てのリンクに、同様のことを行ってください。
 
-We also need to make the main logo link back to the homepage:
+トップページに戻るためのメインロゴリンクも作る必要があります:
 
 {% highlight html %}
 {% raw %}
@@ -126,7 +132,7 @@ We also need to make the main logo link back to the homepage:
 {% endraw %}
 {% endhighlight %}
 
-Now `nav.html` will look like this:
+現在の`nav.html`はこのようになっています:
 
 {% highlight html %}
 {% raw %}
@@ -166,7 +172,7 @@ Now `nav.html` will look like this:
 {% endraw %}
 {% endhighlight %}
 
-In `default.html` replace the nav element with: `{% raw %}{% include nav.html %}{% endraw %}`.
+`default.html`のnav要素を次の記述と置き換えてください: `{% raw %}{% include nav.html %}{% endraw %}`。
 
 {% highlight html %}
 {% raw %}
@@ -189,9 +195,14 @@ In `default.html` replace the nav element with: `{% raw %}{% include nav.html %}
 {% endraw %}
 {% endhighlight %}
 
-To highlight the current page in `nav.html` we need to work out what page we're currently on and add an `active` class to that link in the navigation. There's lots of ways of doing this, we'll do the simplest for now.
+`nav.html`で現在のページをハイライトさせるには、現在のページが何か、またナビゲーションのリンクに`active`クラスを追加するための作業が必要です。
+たくさんの方法がありますが、今はもっともシンプルな方法を使いましょう。
 
 Jekyll has a variable which has the path to the current page you can reference using `page.url`. Let's use that to compare the current page to the item in the navigation. If it matches we'll add the class:
+
+Jekyllでは`page.url`という変数を参照することで、現在のページURLを取得することができます。
+これを使ってナビゲーションの要素が現在のページと同じがチェックするようにしましょう。
+もし同じなら、クラスを追加します:
 
 {% highlight html %}
 {% raw %}
@@ -203,7 +214,7 @@ Jekyll has a variable which has the path to the current page you can reference u
 {% endraw %}
 {% endhighlight %}
 
-Do this for all the links and now `nav.html` will look like this:
+`nav.html`の全てのリンクに適用すると、このようになります:
 
 {% highlight html %}
 {% raw %}
@@ -243,8 +254,9 @@ Do this for all the links and now `nav.html` will look like this:
 {% endraw %}
 {% endhighlight %}
 
-This template already has CSS for styling the `active` class so that's all we need to do.
+このテンプレートは、すでに`active`のためのデザインがCSSに含まれていたため、すべきことはこれだけです。
 
-Go to your browser and navigate around the site, the current page has a red font. At this point we have a basic working website we can hand off to a client.
+ブラウザを開、サイト中を移動してみてください、現在のページは赤い文字になります。
+この時点で、基本的な動作をするウェブサイトができ、クライアントに提供できる状態になりました。
 
-Let's look at hosting and adding a CMS so non-technical users can update the website.
+ノンデベロッパーユーザーがウェブサイトを更新できるよう、ホスティングやCMSを追加することについて見ていきましょう。
