@@ -1,13 +1,14 @@
 ---
 title: Data Files
+title_ja: Dataファイル
 order: 12
 ---
 
-Data Files in Jekyll make it easy to read from YAML, JSON and CSV files. You can treat it like reading data from a database.
+JekyllのDataファイルは、YAML、JSON、CSVファイルによって読みやすくなります。データベースからデータを読むように扱えます。
 
-The way we're going to use Data Files on our site is by adding a map to the contact page with our global offices.
+今回、サイトでDataファイルを使おうと思っているのは、オフィスの場所を示したマップ付きのコンタクトページを追加する時です。
 
-First we need a CSV file with the latitudes and longitudes of our offices. Create `_data/office_locations.csv` with the following contents:
+まず、オフィスの緯度と経度が書かれたCSVファイルが必要です。`_data/office_locations.csv` を以下の内容で作成してください:
 
 {% highlight text %}
 latitude,longitude,name
@@ -18,9 +19,10 @@ latitude,longitude,name
 -35.117330, 173.267559,Kaitai Office
 {% endhighlight %}
 
-Now to add the map and markers to `contact.html`. We can access data in the CSV by using `site.data.office_locations`.
+次に`contact.html`にマップとマーカーを追加します。`site.data.office_locations`を使うことでCSV内のデータにアクセスできます。
 
-Google Maps has a Javascript API so we need to get this data into a Javascript variable. It's actually pretty easy to output JSON with Jekyll:
+GoogleマップはJavascript APIがあるので、Javascriptの変数にこれらのデータを使用します。
+JSONフォーマットの出力は、実はJekyllではとても簡単です。
 
 {% highlight html %}
 {% raw %}
@@ -37,11 +39,13 @@ Google Maps has a Javascript API so we need to get this data into a Javascript v
 {% endraw %}
 {% endhighlight %}
 
-You can use the `forloop` variable inside for loops to get the current index, length or check if it's the first or last item. Here we're checking if it's _not_ the last item and adding a comma.
+現在のindexやlength、最初の項目か最後の項目か、などを知るために、forループ内で`forloop`変数が使えます。
+ここでは、最後の項目_でない_かを確認し、コンマを追加しています。
 
-Finally we need to add a placeholder for the map, initialize the map and add markers. I'm not going to go into depth on this code. However, it's worth mentioning I used [SnazzyMaps](https://snazzymaps.com) to add a nice style to the map.
+最後に、マップにプレースホルダーを追加したいので、マップを初期化し、マーカーを追加します。
+このコードについて詳細には言及しません。しかし、[SnazzyMaps](https://snazzymaps.com)を使ってかっこいいデザインをマップに施していることには触れておきますね。
 
-Here's the final contact page:
+これが最終的なコンタクトページです:
 
 {% highlight html %}
 {% raw %}
@@ -138,10 +142,10 @@ title: Contact
 {% endraw %}
 {% endhighlight %}
 
-And we have a beautiful map showing all our office locations.
+これでオフィスの場所を表示する美しいマップを追加できました。
 
 ![Office](/img/guide/data/map.png)
 
-Our client can go to the collections tab, click on General Data and get an easy interface for updating our office locations.
+クライアントはCollectionsタブに移動し、General Dataを選ぶことで、簡単にオフィスの場所を更新できるインターフェースを使うことができます。
 
 ![CSV](/img/guide/data/csv.png)
