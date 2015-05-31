@@ -1,22 +1,25 @@
 ---
 title: Advanced Topics
+title_ja: 高度な項目
 order: 13
 ---
-In the effort to make this guide as easy as possible we've glossed over some topics. This advanced section is a chance to take a deeper dive on these topics.
+このガイドをできるだけわかりやすくするために、いくつかの項目については簡単にだけ触れました。
+この高度なセクションでは、それらの項目についてより理解を深めるチャンスです。
 
-### Collections vs Front Matter vs Data Files
+### Collections vs Front Matter vs Dataファイル
 
-There're many ways of adding data to Jekyll you might be wondering when do I use each one? It's not always clear but we have a few rules to help us decide:
+Jekyllにはデータを追加する方法がたくさんあるので、どれを使えばよいの？と混乱したと思います。
+いつもはっきりしているわけではないですが、決定のために私たちはいくつかのルールを使っています:
 
-* If the data is already in a CSV, YML, JSON or you would usually store that information in one of those file formats, use a Data File.
-* If you need to order data in a non-sortable way and that data only needs to be used on a single page, use an array in Front Matter.
-* Otherwise use a Collection. Collections are the most flexible method and is usually the best choice.
+* データがすでにCSV、YML、JSON形式であり、それらのファイル形式のファイルに情報をためている場合、Dataファイルを使います。
+* 一般的な順序付けではない方法でデータを並べたい、また特定の1ページでしかそのデータを必要としないなら、Front Matterの配列を使います。
+* その他はCollectionを使います。Collectionsは最も柔軟な機能であり、たいてい良い選択です。
 
 ### RSS Feed
 
-Blogs usually have an RSS feed to push content out to their readers. Adding one to a Jekyll Blog is super simple.
+ブログはふつう、リーダーなどに内容を送るためのRSSフィードを持っています。RSSフィードをJekyllブログに追加する方法は超簡単です。
 
-Create a file in the root of the site called `feed.xml` with the following contents:
+`feed.xml`ファイルを以下の内容で、ウェブサイトルートに作成します:
 
 {% highlight xml %}
 {% raw %}
@@ -50,9 +53,10 @@ Create a file in the root of the site called `feed.xml` with the following conte
 {% endraw %}
 {% endhighlight %}
 
-The empty Front Matter is important here because it tells Jekyll we're using Liquid. This script goes through all the blog posts and outputs them in the RSS XML format.
+ここでは、空のFront Matterが重要です。なぜなら、これはJekyllにLiquidを使うことを伝えるからです。
+このスクリプトでは、全てのブログ記事を通して、RSS XML形式で出力します。
 
-There are a few variables we need to define, like `site.name`. Open up `_config.yml` and add this YAML:
+`site.name`のような、いくつかの設定すべき変数がありますね。`_config.yml`を開いて以下のYAMLを追加してください:
 
 {% highlight yaml %}
 name: Creative Agency
@@ -68,11 +72,11 @@ We just need to add a link to the RSS feed to `<head>` in `_layouts/default.html
 ...
 {% endhighlight %}
 
-### Generate a page for Collections
+### Collectionsでページを生成する
 
-In the services example earlier in the guide, you might want to generate a separate page for each service. Jekyll makes this easy.
+このガイドの前半で出てきたサービスの例で、サービスごとのページを生成したいと思ったかもしれません。Jekyllなら簡単にできます。
 
-Change `_config.yml` to:
+`_config.yml`を変更します:
 
 {% highlight yaml %}
 collections:
@@ -87,9 +91,10 @@ defaults:
       layout: "post"
 {% endhighlight %}
 
-We would also need to add a layout to each collection item. Instead of doing this I've set a default layout for the Services collection.
+それぞれのCollectionの項目にレイアウトを設定する必要もあるでしょう。
+それぞれのページに追加するかわりに、Servicesコレクションに対してdefaultレイアウトを設定しました。
 
-We just need to link to the generated page in `services.html`:
+`services.html`に作成したページへのリンクを追加するだけです:
 
 {% highlight html %}
 {% raw %}
@@ -107,13 +112,15 @@ We just need to link to the generated page in `services.html`:
 {% endraw %}
 {% endhighlight %}
 
-I've also limited the content on the page to 10 words using a filter: `{% raw %}{{ service.content | truncatewords: 10 }}{% endraw %}`. Filters allow you to manipulate content as its output. You can find more filters [here](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers).
+フィルター: `{% raw %}{{ service.content | truncatewords: 10 }}{% endraw %}`を使うことで、ページに10単語しか表示しないよう制限しています。
+フィルターはコンテンツの出力に、少し手を加える事ができます。[こちら](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)でさらに多くのフィルターが探せます。
 
-### Pagination
+### ページネーション
 
-As a blog grows the list of posts can get unwieldy. Jekyll allows us to split the list of blog posts into multiple pages using pagination.
+数えるのが大変になってくるほど、ブログの記事数が増えてきたとします。
+Jekyllではページネーションを使って、ブログの記事一覧を、複数ページに切り分けることができます。
 
-To enable pagination open **_config.yml** and set the paginate variable. This is how many items you want on each page:
+ページネーションを有効にするには**_config.yml**を開き、paginate変数を設定します。こちらは1ページにいくつ記事を表示するかというものです:
 
 {% highlight yaml %}
 ...
@@ -122,9 +129,10 @@ paginate_path: "/blog/page:num"
 ...
 {% endhighlight %}
 
-We also need to move and rename `blog.html` to `/blog/index.html`. We need to do this because of how the pagination urls are going to work. They'll be named something like `/blog/page2`.
+`blog.html`を`/blog/index.html`に変更する必要もあります。
+これは、ページネーションのURLがうまく動作するために必要です。URLは`/blog/page2`のようになるでしょう。
 
-Now that we've moved the file we'll also need to update the link in `_includes/nav.html`.
+次に、先ほどファイルを移動したので、`_includes/nav.html`のリンクを変更する必要があります。
 
 {% highlight html %}
 {% raw %}
@@ -180,13 +188,14 @@ title: Blog
 {% endraw %}
 {% endhighlight %}
 
-Jekyll makes a `paginator` variable available which does most of the work splitting it up into pages. I also added links to the previous/next page at the bottom.
+Jekyllは、複数ページに分割するために`paginator`変数を使えるようにしてくれます。前/次というリンクもページの下部で追加しています。
 
-### Better Navigation
+### よりよいナビゲーション
 
-One way to make the navigation code less repetitive is to pull in the links from another source. Let's try using a CSV files.
+より少ないコードで重複を無くしたナビゲーションを作る1つの方法は、他のソースからリンクを引っ張ってくることです。。
+CSVファイルを使ってやってみましょう。
 
-Create `_data/nav.csv` with the following contents:
+`_data/nav.csv`を以下の内容で作成します:
 
 {% highlight text %}
 name,link
@@ -197,7 +206,7 @@ Blog,/blog/index.html
 Contact,/contact.html
 {% endhighlight %}
 
-Now we just need to iterate over this CSV in `_includes/nav.html`:
+そして`_includes/nav.html`内で、このCSVに対して繰り返し処理をします:
 
 {% highlight html %}
 {% raw %}
@@ -213,10 +222,11 @@ Now we just need to iterate over this CSV in `_includes/nav.html`:
 {% endraw %}
 {% endhighlight %}
 
-### Conclusion
+### まとめ
 
-Hopefully this guide has given you a good foundation. Now you can go out and populate the internet with beautiful Jekyll websites.
+願わくば、このガイドが、よい基礎の獲得に役立てばと思います。これから、美しいJekyllサイトとともに、インターネットに飛び出しましょう。
 
-If you get stuck and need help the offical Jekyll website has excellent [documentation](http://jekyllrb.com/docs/home/). The community at [talk.jekyllrb.com](http://talk.jekyllrb.com) is also a great resource.
+もし行き詰まったり、助けが必要なときは、Jekyllの公式サイトにとてもすばらしい[ドキュメント](http://jekyllrb.com/docs/home/)があります。
+[talk.jekyllrb.com](http://talk.jekyllrb.com)というコミュニティもすばらしい教材です。
 
 Happy Jekylling!
