@@ -1,27 +1,29 @@
 ---
 title: Running Jekyll
+title_ja: Jekyllを実行する
 order: 3
 ---
 
-### Start with static
+### 静的にはじめる
 
-You do not need to learn _all_ of Jekyll to get started. A Jekyll site starts as static HTML which you gradually integrate Jekyll features into.
+はじめるにあたって、Jekyllの _全て_ を学ぶ必要はありません。Jekyllでのサイト作成は、静的なHTMLからはじめ、徐々にJekyllの機能を追加していくように始まります。
 
-We'll be using one of the thousands of free HTML template for this guide. Of course, you can easily build your website from scratch using any CSS or JavaScript framework you desire. One of the big advantages of using Jekyll is you have complete control over all the source code.
+このガイドでは、数多くある無料HTMLテンプレートのうち1つを使っていきます。もちろん、望むならCSSやJavascriptフレームワークを使ってスクラッチでウェブサイトを作成することも簡単にできます。
 
-Download and unzip the [Creative Template](/creative.zip).
+[Creative Template](/creative.zip)をダウンロードして解凍しましょう。
 
-### Running Jekyll
 
-Now let's run Jekyll on the website. Open your terminal and run the following commands:
+### Jekyllを実行する
+
+さあ、ウェブサイトにJekyllを実行してみましょう。ターミナルを開いて以下のコマンドを実行してください:
 
 {% highlight bash %}
-$ cd ~/Downloads/creative # or wherever you've unzipped the template
+$ cd ~/Downloads/creative # もしくは、テンプレートを解凍した場所で
 $ jekyll serve
 {% endhighlight %}
 
-Open your browser and go to [http://localhost:4000](http://localhost:4000). If all has gone well it'll show the website! This may not seem particularly exciting but let me explain what's actually going on here.
+ブラウザを開いて、 [http://localhost:4000](http://localhost:4000)にアクセスしましょう。もしうまくいっていれば、ウェブサイトが表示されます！これといって興奮しないかもしれませんが、実際には何が起こったのか解説します。
 
-Jekyll is monitoring changes on your website. Anytime a file is updated it rebuilds the site, puts the resulting static website in the `_site` directory, then serves it live on port 4000.
+Jekyllはあなたのウェブサイトの変更を監視しています。ファイルが更新されると、Jekyllはサイトを再生成し、`_site`フォルダに、生成した静的サイトを設置します。そして、4000番ポートで動かしています。
 
-We can leave this running and get on with adding some cool Jekyll features.
+いったん実行を止め、クールなJekyllの機能を追加していきましょう。
