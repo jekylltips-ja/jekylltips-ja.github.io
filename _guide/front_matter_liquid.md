@@ -1,10 +1,12 @@
 ---
 title: Front Matter and Liquid
+title_ja: Front MatterとLiquid
 order: 5
 ---
-Front Matter allows us to set metadata for a file. We'll use it to tell `index.html` to use the default layout. The format is YAML between two sets of triple dashes: `---`, which sits at the beginning of a file.
+Front Matter（フロントマッター）を使うと、ファイルにメタデータをセットすることができます。defaultレイアウトを使うために`index.html`に記述してみましょう。
+形式はYAMLで、2つの3連続のダッシュ: `---` の間、そしてファイルの先頭に書きます。
 
-Add the following to the top of `index.html`:
+`index.html`の先頭に以下を追加します:
 
 {% highlight yaml %}
 ---
@@ -12,15 +14,16 @@ layout: default
 ---
 {% endhighlight %}
 
-If you refresh the browser the site should look exactly the same as it did before. The difference is now we have a layout we can use on multiple pages.
+ブラウザを更新すると、サイトの見た目は先ほどと全く同じです。違いは、これからは全てのページで同じレイアウトを使えるようになったということです。
 
-There's a problem though, we don't want the same `<title>` tag on every page, it needs to change. We can fix this with Front Matter and Liquid.
+まだ問題があります。全て同じ`<title>`タグはイヤなので、変更する必要があります。Front MatterとLiquid（リキッド）を使って修正することができます。
 
-Liquid is the templating language used by Jekyll. We used it previously to set the `{% raw %}{{ content }}{% endraw %}` section in the layout.
+Liquidは、Jekyllで使われているテンプレート言語です。
+すでにレイアウトのセクションにて `{% raw %}{{ content }}{% endraw %}`というものを使いました。
 
-There are two types of markup in Liquid:
+Liquidには2種類の書き方があります:
 
-**Output Markup** - To output something use two curly braces.
+**Output Markup** - 2つの波括弧を使って、何かしらを出力します。
 
 {% highlight liquid %}
 {% raw %}
@@ -29,7 +32,7 @@ There are two types of markup in Liquid:
 {% endhighlight %}
 
 
-**Tag Markup** - Doesn't output and is usually used to perform logic. Tag markup uses a curly brace and percentage sign.
+**Tag Markup** - 何も出力しません。基本的にロジックを書くために使われます。Tag markupには波括弧とパーセント記号を使います。
 
 {% highlight liquid %}
 {% raw %}
@@ -39,7 +42,8 @@ There are two types of markup in Liquid:
 {% endraw %}
 {% endhighlight %}
 
-Let's add another line to our Front Matter in `index.html` to configure a title variable. So now the Front Matter will look like this:
+では、title変数を設定するために、`index.html`にもう1行Front Matterを追加しましょう。
+Front Matterは現在このような感じです:
 
 {% highlight yaml %}
 ---
@@ -48,7 +52,7 @@ title: Home Page
 ---
 {% endhighlight %}
 
-Go to `default.html` and replace the `<title>` tag with this:
+`default.html`を開き、このように`<title>`タグを置き換えます:
 
 {% highlight liquid %}
 {% raw %}
@@ -62,6 +66,6 @@ Go to `default.html` and replace the `<title>` tag with this:
 {% endraw %}
 {% endhighlight %}
 
-Using `page` we can reference variables set in the Front Matter. Here we're checking if the title is set and printing it if it does, otherwise it falls back to a default.
+`page`を使うことで、設定したFront Matterを参照できます。ここでは、タイトルがセットされていれば表示され、されていなければ初期表示になるよう確認しましょう。
 
-Refresh the page and the page title will show _Home Page_.
+ページをリロードすると、ページタイトルが _Home Page_となっています。
