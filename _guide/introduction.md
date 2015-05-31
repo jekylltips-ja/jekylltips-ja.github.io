@@ -1,24 +1,28 @@
 ---
-title: Introduction
+title: はじめに
 order: 1
 permalink: /
 ---
-This guide will give you a step-by-step introduction to Jekyll. We'll download a free HTML 5 template, convert it into a Jekyll website, add a blog and make it updatable for clients or non-technical users. Let's get started!
+このガイドは、ステップバイステップでJekyllを学べる入門書です。無料HTML5テンプレートのダウンロード、Jekyllサイトに変換、
+ブログを書いたり、ノンデベロッパーのユーザーが更新しやすくできます。では、はじめましょう！
 
-### What is Jekyll?
+### Jekyllとは？
 
-Jekyll is a static site generator. It takes source files and generates an entirely static website. This is different from how a typical CMS such as Wordpress works. With Wordpress when a visitor goes to a page, that page is generated on the fly. With Jekyll, the entire website is generated upfront so visitors are simply served static files.
+Jekyllは静的サイトジェネレーター（static site generator）です。Jekyllは、ソースコードをもとに、完全な静的ウェブサイトを生成します。
+これは、Wordpressのような典型的なCMSが行っていたものとは違います。Wordpressでは訪問者がページにアクセスするとき、その場でそのページを生成します。
+Jekyllでは、ウェブサイト全体は事前に生成されているので、訪問者はシンプルに静的ファイルを閲覧できます。
 
-### Why use Jekyll?
+### なぜJekyllを使うのか？
 
-There's been huge trend towards static technologies mostly to the complexity of current systems. Jekyll is:
+主に複雑な現在のシステムに対する、静的技術の非常に大きなトレンドがあります。Jekyllは：
 
-* **Simple** - There's far less moving parts required for a Jekyll website. This makes Jekyll websites extremely fast and simple to build.
+* **シンプル** - Jekyllのサイトは、はるかに少ない機能しか必要としません。これによって、とても早く、シンプルにJekyllサイトを作成できます。
 
-* **Fast** - Jekyll websites are among the fastest on the internet. There's no time spent generating a page, the web server simply needs to return a file.
+* **速い** - Jekyllサイトは、インターネットでも最速のものの1つです。ページを生成する時間が無いですし、Webサーバーもシンプルにファイルを送り返すだけです。
 
-* **Secure** - Jekyll websites are secure because it's just a static website. You don't need to worry about installing security patches or worrying if a plugin has vulnerabilities.
+* **安全** - Jekyllサイトは、単に静的サイトであるため、安全です。セキュリティパッチのインストールや、プラグインの脆弱性について心配する必要がありません。
 
-* **Scalable** - There's no backend processing on Jekyll websites which makes them insanely scalable.
+* **スケーラブル** - Jekyllサイトはバックエンドを必要としないことによって、とてつもなくスケーラブルです。
 
-* **Source Controlled** - The entire website including all the content can be source controlled. This gives you the entire history of the website and the ability to roll back to any version.
+* **ソースコード管理できる** - すべてのコンテンツを含め、ウェブサイト全体をソースコード管理できます。
+これによって、ウェブサイトの全ての履歴が得られ、どの時点にもロールバックができます。
