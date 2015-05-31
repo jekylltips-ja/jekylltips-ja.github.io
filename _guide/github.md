@@ -2,11 +2,14 @@
 title: GitHub
 order: 7
 ---
-I'll assume you know how to use Git and GitHub for this section. If you're unfamiliar with these tools, GitHub has a great [Getting Started Guide](https://try.github.io/) which only takes 15 minutes.
+この段階で、あなたはGitとGitHubの使い方を知っていると思います。
+もしこれらのツールに慣れていなければ、15分で学べる、GitHubのすばらしい[スタートガイド](https://try.github.io/)があります
 
-Create a new repository and push the source files of your website to GitHub. One thing to note is we don't need to include the `_site` folder in the repository because you can easily generate it.
+新しくリポジトリを作成し、ウェブサイトのソースコードをGitHubにpushしましょう。
+ひとつ注意することは、`_site`フォルダはリポジトリに含めなくても良いです。これは簡単に生成できますので。
 
 I use this `.gitignore` file for Jekyll websites:
+Jekyllサイトでは、私はこのような`.gitignore`ファイルを使っています:
 
 {% highlight text %}
 _site/
