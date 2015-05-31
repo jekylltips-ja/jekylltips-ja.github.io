@@ -1,22 +1,27 @@
 ---
 title: Layouts
+title_ja: レイアウト
 order: 4
 ---
-There's a lot of duplication of HTML in the website as it stands now. Every page has a header and footer which are essentially the same. If we wanted to update the header we'd have to do it on every single page.
+現段階では、このウェブサイトには、たくさんの重複したHTMLがあります。すべてのページにほぼ同じヘッダーとフッターがあります。
+もしヘッダーを更新したくなったら、すべてのページに同じことをしなくてはいけません。
 
-To remove this duplication we're going to use a Layout. Layouts allow us to have our header and footer code in one file and have it wrap around the content on other pages.
+この重複を無くすためには、レイアウトを使いましょう。レイアウトはヘッダーとフッターのコードを1つのファイルにし、他のページのコンテンツを囲めるようにしてくれます。
 
-First create a `_layouts` folder in the root of your website and inside it, create an empty file called `default.html`.
+まず、`_layouts`フォルダをウェブサイトのルートに作成し、そのなかに`default.html`という空のファイルを作ってください。
 
-Now we need to work out which sections of HTML repeat on each page.
+それぞれのページでHTMLセクションを繰り返し利用するために、いくつか作業が必要です。
 
-Open up `index.html`, and look for the `</nav>` end tag. Cut everything above and including this end tag and paste it into `default.html`. Go back to `index.html` and cut everything below and including the `<!-- jQuery -->` comment and paste it below the other content in `default.html`.
+`index.html`を開いて、`</nav>`終了タグを探してください。終了タグを含めた上部全てを切り取り、`default.html`に貼り付けてください。
+`index.html`に戻り、`<!-- jQuery -->`コメントを含め、下部全てを切り取り、`default.html`の先ほど貼り付けたコードの下に、追加で貼り付けてください。
 
-We also need to tweak the path to assets. At the moment the paths are relative to `/index.html`, we need to make them relative to the root of the website so they work for all pages. This is easier than it sounds, just go through the assets in `default.html` and add a `/` to the beginning of the path. For example change `css/bootstrap.min.css` to `/css/bootstrap.min.css`.
+ファイルパスの微調整も必要です。現時点では、パスは`/index.html`に対して相対的ですが、これらの要素はすべてのページで使われるので、ウェブサイトのルートに対して相対的にする必要があります。
 
-Lastly, we need to insert a token into our layout to tell Jekyll where the content will go. Type in `{% raw %}{{ content }}{% endraw %}` between the header and footer in `default.html`. We'll go over what this is doing in the next section of the guide.
+最後に、どこにコンテンツを表示すればよいかJekyllに教えるおまじないを追加します。
+`default.html`のヘッダーとフッターの間に`{% raw %}{{ content }}{% endraw %}`と入力してください。
+このガイドの次のセクションで、今回行ったことについても触れていきます。
 
-`default.html` should now look like this:
+`default.html`はこのようになっているはずです:
 
 {% highlight html %}
 {% raw %}
@@ -96,7 +101,7 @@ Lastly, we need to insert a token into our layout to tell Jekyll where the conte
 {% endraw %}
 {% endhighlight %}
 
-And `index.html` like this:
+そして`index.html`はこんな感じです:
 
 {% highlight html %}
 {% raw %}
