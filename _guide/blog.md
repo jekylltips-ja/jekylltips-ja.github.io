@@ -1,17 +1,22 @@
 ---
 title: Blogging
+title_ja: ブログを書く
 order: 9
 ---
 
-We're going to be working with [CloudCannon](http://cloudcannon.com) for the rest of the guide. When you're working now, you should either push each change to GitHub (which then pushes to CloudCannon) or make changes directly in CloudCannon.
+残りのガイド[CloudCannon](http://cloudcannon.com)を使って進めていきます。
+もしできるなら、GitHubに変更をpushしてもよいですし（CloudCannonにも反映されます）、直接CloudCannonで編集をしてもよいです。
 
-It's time to add a blog to our website. Blog posts are [Markdown](https://help.github.com/articles/markdown-basics/) files which live in the `_posts` folder.
+いよいよウェブサイトにブログを追加しましょう。
+ブログ記事は、`_posts`フォルダ内の[マークダウン](https://help.github.com/articles/markdown-basics/) ファイルです。
 
-Create a `_posts` folder in the root of the website. To create a folder in CloudCannon create a file in the root then in the context menu click "Move to a new folder". There's no way to have an empty folder in CloudCannon.
+`_posts`フォルダをウェブサイトルートに作成しましょう。
+CloudCannonでフォルダを作るには、まずファイルを作成してからファイルメニューの"Move to a new folder"を選択します。
+CloudCannonでは空のフォルダを作る方法がありません。
 
-Jekyll expects the file name to be in a particular format for blog posts. The format is: `YEAR-MONTH-DAY-title.md`.
+Jekyllはブログ記事に、特定の形式名前をつけるよう期待しています。フォーマットは`YEAR-MONTH-DAY-title.md`です。
 
-Create a new file called `_posts/2015-03-06-my-first-post.md` with the following content:
+`_posts/2015-03-06-my-first-post.md`というファイルを以下の内容で作成してください:
 
 {% highlight text %}
 ---
@@ -28,10 +33,11 @@ convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter
 Take a look at the source for this post to get an idea about how it works.
 {% endhighlight %}
 
+ご覧のとおり`post`というレイアウトを使っているので、作る必要があります。`_layouts/post.html`を作りましょう。
+ゼロから新しいレイアウトは作りたくないので、レイアウトの継承を使いましょう。
+Front Matter内で、親レイアウトとして他のレイアウトを指定することができます。
 
-As you can see we're using a layout called `post` which we need to create now. Create `_layouts/post.html`. We don't want build another layout from scratch so we're going to use layout inheritance. In the Front Matter of a layout we can specify _another_ layout as a parent.
-
-Insert the following into `/_layouts/post.html`:
+`/_layouts/post.html`に以下を記述しましょう:
 
 {% highlight html %}
 {% raw %}
@@ -54,9 +60,9 @@ layout: default
 {% endraw %}
 {% endhighlight %}
 
-Now we need a page which lists all the blog posts.
+次に全てのブログ記事の一覧が表示されるページを作りましょう。
 
-Create `blog.html` in the root of the website and add the following contents:
+以下の内容で`blog.html`をウェブサイトルートに作成します:
 
 {% highlight html %}
 {% raw %}
@@ -89,9 +95,9 @@ title: Blog
 {% endraw %}
 {% endhighlight %}
 
-`site.posts` is a Jekyll variable which has all the blog posts. We iterate over all the posts and output the URL, title and date.
+`site.posts`は全てのブログ記事を持ったJekyllの変数です。ブログ記事に対し繰り返し処理をし、URL、タイトル、日付を出力します。
 
-The last step is to add a link to the blog in `nav.html`:
+最後のステップは`nav.html`にブログリンクを追加することです:
 
 {% highlight html %}
 {% raw %}
@@ -103,24 +109,27 @@ The last step is to add a link to the blog in `nav.html`:
 {% endraw %}
 {% endhighlight %}
 
-Head over to the browser and check out your first Jekyll blog post.
+ブラウザを開、最初のJekyllブログ記事を確認しましょう。
 
-![Blog](/img/guide/blog/blog.png)
+![ブログ](/img/guide/blog/blog.png)
 
-Let's see how our client updates the blog.
+次に、クライアントがどのようにブログを更新できるか見てみましょう。
 
-Go to the Collections tab in [CloudCannon](http://cloudcannon.com). This bring up two tabs, Draft Posts and Published Posts.
+[CloudCannon](http://cloudcannon.com)タブのCollectionsに移動します。
+Draft Posts（下書き記事）とPublished Posts（公開済み記事）というタブが表示されます。
 
-Draft posts are **not** published to the live website and live in the `_drafts` directory.
+`_drafts`フォルダにあるDraft postsは、ウェブサイトとして公開**されません**。
 
 ![Collections](/img/guide/blog/collections.png)
 
-If you go to Published Posts you will see our first blog post there. Click the post and you'll be able to update it using the visual editor.
+Published Postsに移動すると、最初のブログ記事があるのがわかります。
+記事をクリックするとビジュアルエディタで更新ができるのがわかるでしょう。
 
-Go back to the Collections view and create a new post by clicking **Start a new Draft**, then adding content. When you're finished press **Publish Post** which moves it from `_drafts` to `_posts` and prefixes the file name with today's date.
+Collectionsに戻り、**Start a new Draft**をクリックして、新しい記事を追加し、内容を書いていきます。
+記事が完成し、**Publish Post**を押すと`_drafts`フォルダから`_posts`フォルダに現在の日付をつけたファイル名で移動してくれます。
 
 ![New Post](/img/guide/blog/new_post.png)
 
-Go to your cloudvent domain and browse to the `blog.html` page. There are now two blogs posts!
+あなたのcloudventドメインにアクセスし、`blog.html`にアクセスしてください。2つのブログ記事がありますね！
 
 ![Blog Index](/img/guide/blog/blog_index.png)
