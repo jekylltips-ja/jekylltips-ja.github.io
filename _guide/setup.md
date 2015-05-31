@@ -1,11 +1,12 @@
 ---
-title: Setup
+title: setup
+title_ja: セットアップ
 order: 2
 ---
 
-### Installation
+### インストール
 
-Jekyll has a few dependencies including Ruby and Node.js. Follow the instructions for your OS.
+Jekyllは、RubyやNode.jsを含め、いくつかの依存ライブラリがあります。あなたのOSに合わせて、以下の手順に従ってください。
 
 #### OSX
 {% highlight bash %}
@@ -19,4 +20,4 @@ $ gem install jekyll
 {% endhighlight %}
 
 #### Windows
-Windows is not officially supported but [there is a workaround](http://jekyllrb.com/docs/windows/).
+Windowsは公式にサポートされていませんが [こちらに解決策があります](http://jekyllrb.com/docs/windows/)。
