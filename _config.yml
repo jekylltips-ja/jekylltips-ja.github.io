@@ -2,14 +2,12 @@ google_analytics_id:
 collections:
   templates:
     name: Jekyll Themes
-  snippets:
-    name: Jekyll Snippets
-    output: true
-    permalink: "/:collection/:title/"
   services:
     name: Services for Static Sites
   tutorials:
     name: Jekyll Tutorials
+    output: true
+    permalink: "/:collection/:title/"
   guide:
     name: Get Started Guide
     output: true
@@ -17,9 +15,9 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: snippets
+      type: tutorials
     values:
-      layout: snippet
+      layout: docs
   - scope:
       path: ""
       type: guide

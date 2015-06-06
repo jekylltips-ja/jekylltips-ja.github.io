@@ -15,63 +15,6 @@ Jekyllにはデータを追加する方法がたくさんあるので、どれ�
 * 一般的な順序付けではない方法でデータを並べたい、また特定の1ページでしかそのデータを必要としないなら、Front Matterの配列を使います。
 * その他はCollectionを使います。Collectionsは最も柔軟な機能であり、たいてい良い選択です。
 
-### RSS Feed
-
-ブログはふつう、リーダーなどに内容を送るためのRSSフィードを持っています。RSSフィードをJekyllブログに追加する方法は超簡単です。
-
-`feed.xml`ファイルを以下の内容で、ウェブサイトルートに作成します:
-
-{% highlight xml %}
-{% raw %}
----
----
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>{{ site.name | xml_escape }} - Articles</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <link>
-    {{ site.url }}</link>
-    {% for post in site.posts %}
-      {% unless post.link %}
-      <item>
-        <title>{{ post.title | xml_escape }}</title>
-        {% if post.excerpt %}
-          <description>{{ post.excerpt | xml_escape }}</description>
-        {% else %}
-          <description>{{ post.content | xml_escape }}</description>
-        {% endif %}
-        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <link>
-        {{ site.url }}{{ post.url }}</link>
-        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
-      </item>
-      {% endunless %}
-    {% endfor %}
-  </channel>
-</rss>
-{% endraw %}
-{% endhighlight %}
-
-ここでは、空のFront Matterが重要です。なぜなら、これはJekyllにLiquidを使うことを伝えるからです。
-このスクリプトでは、全てのブログ記事を通して、RSS XML形式で出力します。
-
-`site.name`のような、いくつかの設定すべき変数がありますね。`_config.yml`を開いて以下のYAMLを追加してください:
-
-{% highlight yaml %}
-name: Creative Agency
-description: We are a creative agency who provides web design, SEO, content and social services.
-url: http://creative.com
-{% endhighlight %}
-
-RSSフィードへのリンクを、`_layouts/default.html`の`<head>`に追加する必要があります。
-
-{% highlight html %}
-...
-<link rel="alternate" type="application/rss+xml" title="My Site RSS" href="/feed.xml" />
-...
-{% endhighlight %}
-
 ### Collectionsでページを生成する
 
 このガイドの前半で出てきたサービスの例で、サービスごとのページを生成したいと思ったかもしれません。Jekyllなら簡単にできます。
