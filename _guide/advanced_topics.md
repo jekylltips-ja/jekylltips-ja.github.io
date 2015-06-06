@@ -64,7 +64,7 @@ description: We are a creative agency who provides web design, SEO, content and 
 url: http://creative.com
 {% endhighlight %}
 
-We just need to add a link to the RSS feed to `<head>` in `_layouts/default.html`:
+RSSフィードへのリンクを、`_layouts/default.html`の`<head>`に追加する必要があります。
 
 {% highlight html %}
 ...
@@ -144,7 +144,7 @@ paginate_path: "/blog/page:num"
 {% endraw %}
 {% endhighlight %}
 
-Finally, we need to update `/blog/index.html` to use pagination:
+最後に、ページネーションを使うために`/blog/index.html`を更新しましょう。
 
 {% highlight html %}
 {% raw %}
