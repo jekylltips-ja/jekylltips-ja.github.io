@@ -161,7 +161,7 @@ slideshows:
 {% endraw %}
 {% endhighlight %}
 
-これはfront matterに設定した配列に対して繰り返し処理をしており、前と同じかたちでデータを出力しています。
+これはfront matterに設定した配列に対して繰り返し処理をしており、前と同じHTML構造でデータを出力しています。
 
 ひとつトリッキーな部分は、forloop変数を使って最初のスライドにactive classを設定する必要があるところです：
 
