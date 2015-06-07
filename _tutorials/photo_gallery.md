@@ -1,17 +1,21 @@
 ---
 title: Photo Gallery
+title_ja: フォトギャラリー
 heading: Photo Galleries in Jekyll
+heading_ja: Jekyllでフォトギャラリー
 ---
 
-Photo galleries typically have a lot of repeating code. It a good idea to remove any repeating code to make websites easy to maintain.
+フォトギャラリーは基本的に多くの重複したコードでできています。
+ウェブサイトをメンテナンスしやすくするために、重複したコードを無くす良いアイデアをご紹介します。
 
-Through this process we'll also makes it easier for non-technical users to update content in slideshows.
+この内容を通して、技術に詳しくないユーザーでもスライドショーのコンテンツを簡単に更新できるようにもしていきます。
 
-For this tutorial we'll be using the [Corlate](http://shapebootstrap.net/download?id=439) template from [ShapeBootstrap](http://shapebootstrap.net/).
+このチュートリアルでは、[ShapeBootstrap](http://shapebootstrap.net/)から[Corlate](http://shapebootstrap.net/download?id=439)テンプレートを使います。
 
-Open up `index.html` in your code editor and look at the HTML for the slideshow.
+コードエディタで`index.html`を開き、スライドショーのHTMLコードを探してください。
 
-To begin with there's a `ol` with a class of `carousel-indicators` which has an element for each slide. This displays the dots to show have many slides there are and which one is active. Let's just comment this part out for now and come back to it later.
+はじめは、各スライドのための要素を持った`carousel-indicators`というクラス付きの`ol`要素です。
+これはいくつスライドがあるか、またどれがactiveか、を表示するドットを表示します。今はこの部分をコメントアウトして、後で戻ってきましょう。
 
 {% highlight html %}
 {% raw %}
@@ -26,14 +30,15 @@ To begin with there's a `ol` with a class of `carousel-indicators` which has an 
 {% endhighlight %}
 
 We need to pull out the content for each slide and put it in Front Matter. So what content does each slide have? I can see:
+各スライドのコンテンツを抜き出し、Front Matterに記述する必要があります。では、各スライドにはどんなコンテンツがあるでしょうか？以下があります：
 
-* Background Image
-* Main Heading
-* Sub Heading
-* Read More Link
-* Pop up Image
+* 背景画像
+* メイン見出し
+* サブ見出し
+* Read Moreのリンク
+* ポップアップ画像
 
-Here's that content marked out on the first slide:
+こちらに1つめのスライドのコンテンツを書き出しました：
 
 {% highlight html %}
 {% raw %}
@@ -62,9 +67,9 @@ Here's that content marked out on the first slide:
 {% endraw %}
 {% endhighlight %}
 
-Now we need to put the content for each slide into Front Matter.
+次にFront Matterに各スライドのコンテンツを記述します。
 
-Specifying an array in YAML can be done using `-`:
+YAMLで配列を指定するには`-`を使うことでできます：
 
 {% highlight yaml %}
 {% raw %}
@@ -76,7 +81,7 @@ my_array:
 {% endraw %}
 {% endhighlight %}
 
-We can also have a hash for each item in the array like this:
+以下のようにすることで、各要素を持つ配列のハッシュの作成もできます：
 
 {% highlight yaml %}
 {% raw %}
@@ -96,9 +101,9 @@ my_array:
 {% endraw %}
 {% endhighlight %}
 
-Now let's apply this to our slideshow.
+では、私たちのスライドショーに適用しましょう。
 
-Add the following to the top of `index.html`:
+以下を`index.html`の一番上に追加します：
 
 {% highlight liquid %}
 {% raw %}
@@ -123,7 +128,7 @@ slideshows:
 {% endraw %}
 {% endhighlight %}
 
-And replace `<div class="carousel-inner">` with the following:
+そして`<div class="carousel-inner">`を以下のように置き換えます：
 
 {% highlight liquid %}
 {% raw %}
@@ -156,9 +161,9 @@ And replace `<div class="carousel-inner">` with the following:
 {% endraw %}
 {% endhighlight %}
 
-This iterates over the array we set in the front matter and outputting the data into the same format as before.
+これはfront matterに設定した配列に対して繰り返し処理をしており、前と同じかたちでデータを出力しています。
 
-One tricky part is we need to set an active class on the first slide which is done using the forloop variable:
+ひとつトリッキーな部分は、forloop変数を使って最初のスライドにactive classを設定する必要があるところです：
 
 {% highlight liquid %}
 {% raw %}
@@ -168,13 +173,14 @@ One tricky part is we need to set an active class on the first slide which is do
 {% endraw %}
 {% endhighlight %}
 
-If you upload the site to [CloudCannon](http://cloudcannon.com) (remember you'll need to add a `_config.yml`), a non-technical user can easily change content, reorder the slideshow and add/remove slides.
+もし、サイトを[CloudCannon](http://cloudcannon.com)にアップロードしている場合（`_config.yml`を作成するのを忘れないでくださいね）、
+技術に詳しくないユーザーでも簡単に内容を変更でき、スライドショーを並び替え、追加/削除ができます。
 
 ![CloudCannon Front Matter](/img/tutorials/slideshow/cloudcannon.png)
 
-Everythings working now so let's get back to the carousel indicators. We just need to add an `<li>` for each slide and add a class of active to the first item.
+すべてが動作しているので、carousel indicatorsに戻りましょう。各スライドに`<li>`を追加して、ひとつめのスライドにactive classを追加します。
 
-Uncomment `<ol class="carousel-indicators">` and replace it with this:
+`<ol class="carousel-indicators">`のコメントアウトを解除し、以下のものに置き換えます：
 
 {% highlight html %}
 {% raw %}
