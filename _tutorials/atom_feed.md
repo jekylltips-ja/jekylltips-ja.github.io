@@ -4,12 +4,14 @@ author:
   name: MDO
   link: https://github.com/mdo
 title: Atom Feed
+title_ja: Atomフィード
 heading: Atom Feed in Jekyll
+heading_ja: JekyllでのAtomフィード
 ---
 
-An Atom feed allows readers to subscribe to the latest posts on your blog. Adding an Atom Feed to a Jekyll website is simple.
+Atomフィードによって、読者はあなたのブログの最新の記事を購読することができます。AtomフィードをJekyllサイトに追加するのは簡単です。
 
-Create `atom.xml` to the root of the website with the following contents:
+以下の内容で、ウェブサイトルートに`atom.xml`を作ります：
 
 {% highlight xml %}
 {% raw %}
@@ -41,7 +43,7 @@ layout: null
 {% endraw %}
 {% endhighlight %}
 
-This iterates over all your blog posts and prints them out in XML. Now we need to add the site variables to `_config.yml`:
+このコードは、すべてのブログ記事に繰り返し処理を行い、記事全てをXML形式で出力しています。次に、`_config.yml`にサイト変数を追加しましょう。
 
 {% highlight yaml %}
 ...
@@ -53,7 +55,7 @@ author:
 ...
 {% endhighlight %}
 
-And finally add a link to `<head>` which is probably in `_layouts/default.html` :
+そして最後に、おそらく`_layouts/default.html`にある`<head>`にリンクを追加します：
 
 {% highlight html %}
 ...

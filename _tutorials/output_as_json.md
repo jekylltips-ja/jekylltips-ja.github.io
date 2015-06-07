@@ -1,10 +1,12 @@
 ---
 title: Output as JSON
+title_ja: JSONの出力
 heading: Output JSON in Jekyll
+heading_ja: JekyllでJSONを出力する
 ---
-Sometimes you'll need to output items from a Data File or Collection as JSON.
+時には、データファイルやコレクションからJSON形式で出力をしたいことがあるでしょう。
 
-Here's how you output JSON in Jekyll:
+こちらがJekyllでJSONを出力する方法です：
 
 {% highlight liquid %}
 {% raw %}

@@ -4,17 +4,18 @@ author:
   name: snaptortoise
   link: https://github.com/snaptortoise
 title: RSS Feed
+title_ja: RSSフィード
 heading: RSS Feed in Jekyll
+heading_ja: JekyllでのRSSフィード
 ---
 
-Blogs usually have an RSS feed to push content out to their readers. Adding a RSS Feed to a Jekyll Blog is super simple.
+ブログはふつう、リーダーなどに内容を送るためのRSSフィードを持っています。RSSフィードをJekyllブログに追加する方法は超簡単です。
 
-Create a file in the root of the site called `feed.xml` with the following contents:
+`feed.xml`ファイルを以下の内容で、ウェブサイトルートに作成します:
 
 {% highlight xml %}
 {% raw %}
 ---
-layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -44,19 +45,18 @@ layout: null
 {% endraw %}
 {% endhighlight %}
 
-This script goes through all the blog posts and outputs them in the RSS XML format.
+ここでは、空のFront Matterが重要です。なぜなら、これはJekyllにLiquidを使うことを伝えるからです。
+このスクリプトでは、全てのブログ記事を通して、RSS XML形式で出力します。
 
-There are a few variables we need to define, like `site.name`. Open up `_config.yml` and add this YAML:
+`site.name`のような、いくつかの設定すべき変数がありますね。`_config.yml`を開いて以下のYAMLを追加してください:
 
 {% highlight yaml %}
-...
 name: Creative Agency
 description: We are a creative agency who provides web design, SEO, content and social services.
 url: http://creative.com
-...
 {% endhighlight %}
 
-We just need to add a link to the RSS feed to `<head>` which is probably in `_layouts/default.html`:
+RSSフィードへのリンクを、`_layouts/default.html`の`<head>`に追加する必要があります。
 
 {% highlight html %}
 ...

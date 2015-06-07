@@ -1,10 +1,12 @@
 ---
 title: Navigation
+title_ja: ナビゲーション
 heading: Navigation in Jekyll
+heading_ja: Jekyllでのナビゲーション
 ---
-One way to make the navigation code in Jekyll less repetitive is to pull in the links from another source. Let's try using a CSV files.
+少ない繰り返しでJekyllにナビゲーションを作るひとつの方法は、別のソースからリンクを取ってくるものです。CSVファイルを使ってやってみましょう。
 
-Create `_data/nav.csv` with the following contents:
+以下の内容で`_data/nav.csv`を作ります：
 
 {% highlight text %}
 name,link
@@ -15,7 +17,7 @@ Blog,/blog/index.html
 Contact,/contact.html
 {% endhighlight %}
 
-Now we just iterate over the CSV in the navigation and add a class of active if it's the current page:
+では、ナビゲーション内で、このCSVに繰り返し処理を行い、さらに現在のページならactive classを追加します：
 
 {% highlight html %}
 {% raw %}

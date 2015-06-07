@@ -1,19 +1,21 @@
 ---
 title: SEO
 heading: SEO in Jekyll
+heading_ja: JekyllでのSEO
 ---
-Users coming from Wordpress commonly ask how to do SEO in Jekyll. In Jekyll you have more control over SEO than a Wordpress plugin can give you.
+Wordpressを使っていたユーザーからの、よくある質問が、JekyllではどのようにSEOをするかということです。
+Jekyllでは、Wordpressのプラグインでできていた以上に、もっとSEOをコントロールすることができます。
 
-For the basis of this tutorial I'll be referencing topics outlined in Google's [Search Engine Optimization
-Starter Guide](http://static.googleusercontent.com/media/www.google.com/en/us/webmasters/docs/search-engine-optimization-starter-guide.pdf).
+このチュートリアルの基礎として、Googleがまとめた[Search Engine Optimization
+Starter Guide](http://static.googleusercontent.com/media/www.google.com/en/us/webmasters/docs/search-engine-optimization-starter-guide.pdf)を参考にしようと思います。（[日本語版はこちら](http://static.googleusercontent.com/media/www.google.co.jp/ja/jp/intl/ja/webmasters/docs/search-engine-optimization-starter-guide-ja.pdf)）
 
-We'll be covering the `<title>` and `<meta>` description tags, improving the structure of URLs, adding a site map and custom 404 pages.
+`<title>`と`<meta>`descriptionタグを設定し、URL構造を改善し、サイトマップとカスタム404ページの追加を行っていきましょう。
 
-### Title and Descriptions
+### タイトルとサイトの説明
 
-We can make `<title>` and `<meta>` description tags easily editable using Front Matter.
+Front Matterを使うことで、簡単に編集できる`<title>`と`<meta>`descriptionタグを作ることができます。
 
-For `<title>` we'll output the a title from a Front Matter variable if it exists, otherwise fall back to a default:
+`<title>`には、Front Matterに変数があればタイトルとして出力し、なければデフォルトのものを使います：
 
 {% highlight liquid %}
 {% raw %}
@@ -29,7 +31,7 @@ For `<title>` we'll output the a title from a Front Matter variable if it exists
 {% endraw %}
 {% endhighlight %}
 
-For `<meta>` description, we'll output the meta tag only if the Front Matter variable exists:
+`<meta>`descriptionには、Front Matterに変数があったときだけ出力しましょう：
 
 {% highlight liquid %}
 {% raw %}
@@ -41,7 +43,7 @@ For `<meta>` description, we'll output the meta tag only if the Front Matter var
 {% endraw %}
 {% endhighlight %}
 
-Now we set those variables in the Front Matter for each HTML page like this:
+このように各HTMLページのFront Matterにこれらの変数を設定しましょう：
 
 {% highlight liquid %}
 {% raw %}
@@ -53,16 +55,17 @@ description: A blog with the latest trends and news in Web Design
 {% endraw %}
 {% endhighlight %}
 
-If you're using [CloudCannon](http://cloudcannon), your non-technical users can easily update the Front Matter:
+もしあなたが[CloudCannon](http://cloudcannon)をお使いなら、技術に詳しくないユーザーでもFront Matterを簡単に変更できます：
 
 ![Front Matter on CloudCannon](/img/tutorials/seo/front_matter.png)
 
 
-### Improving the Structure of URLs
+### URL構造を改善する
 
-Using Permalinks you can control how Jekyll builds your URLs. For SEO, Google recommends using descriptive keywords in your URL.
+Permalinks（パーマリンク）を使えば、JekyllでどのようにURLを構築するかコントロールできます。
+SEOのために、Googleは説明的な単語をURLに使うことを推奨しています。
 
-Let's say you have an HTML page `/red.html` but you wanted the URL to be `/cups/red/`, you could see the permalink in the Front Matter like this:
+`/red.html`というHTMLページがあることを宣言しましょう。ですが、`/cups/red/`というURLにしたいとき、Front Matterに書かれたpermalinkはこのようになります：
 
 {% highlight liquid %}
 {% raw %}
@@ -73,9 +76,9 @@ permalink: /cups/red/
 {% endraw %}
 {% endhighlight %}
 
-You could also just place the rename the file from `/red.html` to `/cups/red/index.html`, Jekyll gives you the power to organise your site however you'd like.
+ファイル名を`/red.html`から`/cups/red/index.html`に変更することでも可能ですが、Jekyllはお好きな方法でサイトを構成する力を与えてくれます。
 
-A more useful example is changing the permalink for blog posts. Just add this line to `_config.yml`:
+さらに便利な例は、ブログ記事のpermalinkを変更するものです。`_config.yml`に以下の行を追加するだけです：
 
 {% highlight yaml %}
 {% raw %}
@@ -86,7 +89,7 @@ permalink: /blog/:year/:month/:day/:title/
 {% endhighlight %}
 
 
-You can also change the permalink for an entire Collection:
+コレクション全体のpermalinkも変更することができます：
 
 {% highlight yaml %}
 {% raw %}
@@ -99,11 +102,12 @@ collections:
 {% endraw %}
 {% endhighlight %}
 
-### Sitemap
+### サイトマップ
 
-We can generate a sitemap for our site using a script from [David Ensinger](http://davidensinger.com/2013/11/building-a-better-sitemap-xml-with-jekyll/).
+[David Ensinger](http://davidensinger.com/2013/11/building-a-better-sitemap-xml-with-jekyll/)のスクリプトを使って、
+サイトマップを生成することができます。
 
-Create `/sitemap.xml` with the following content:
+以下の内容で`/sitemap.xml`を作ります：
 
 {% highlight liquid %}
 {% raw %}
@@ -166,7 +170,7 @@ sitemap:
 {% endraw %}
 {% endhighlight %}
 
-By default this will include all pages and blog posts on your website. You can exclude pages and configure properties like the priority using Front Matter:
+これはデフォルトでウェブサイトのすべての記事、ページを含んでいます。ページの除外や、優先度（priority）の設定がFront Matterを使うことでできます：
 
 {% highlight liquid %}
 {% raw %}
@@ -178,19 +182,20 @@ sitemap:
 {% endraw %}
 {% endhighlight %}
 
-### Custom 404 Pages
+### カスタム404ページ
 
-This is more of a best practice. Custom 404 Pages in Jekyll can help users navigate your site if they've gone to a page that doesn't exist. Create `404.html` with the content for your 404 page. You can use Front Matter, liquid and layouts as normal.
+これはさらに詳細なベストプラクティスです。Jekyllでのカスタム404ページは、ユーザーが存在しないページにアクセスしてしまったとき、案内をして助けることができます。
+404ページの内容とともに`404.html`を作ります。Front Matter、liquidとレイアウトが使えます。
 
-[GitHub Pages](https://pages.github.com), [CloudCannon](http://cloudcannon.com) and the Jekyll Server will show 404.html when they can't find a page. Any other services may require configuration to get custom 404 pages working.
+[GitHub Pages](https://pages.github.com), [CloudCannon](http://cloudcannon.com)やJekyll Serverは、ページが見つからない時に404.htmlを表示します。
+その他のサービスの場合はカスタム404ページを機能させるために設定が必要でしょう。
 
+### コンテンツでのTips
 
-### Tips for Content
+良いコンテンツはSEOの鍵です。少しのシンプルなルールによって、サイトのコンテンツが高い検索エンジンの順位を実現することを確実にできます。
 
-Good content is the key to SEO. With a few simple rules you can ensure all your content is working towards a high ranking in search enginges:
-
-* Search Engines love fresh content
-* Search Engines don't like duplicate content
-* Images should always have an [alt attribute](http://www.w3schools.com/tags/att_img_alt.asp)
-* Use descriptive text when linking: _Bad_: [click here](http://static.googleusercontent.com/media/www.google.com/en/us/webmasters/docs/search-engine-optimization-starter-guide.pdf) for the Google SEO Starter Guide. _Good_: Download the [Google SEO Starter Guide](http://static.googleusercontent.com/media/www.google.com/en/us/webmasters/docs/search-engine-optimization-starter-guide.pdf).
-* If you delete a page, make it redirect somewhere else relevant. You can do this on [CloudCannon](http://cloudcannon) using [301 redirects](http://docs.cloudcannon.com/#common_tasks6_301_redirectshtml).
+* 検索エンジンは新しいコンテンツを大変好む
+* 検索エンジンは重複したコンテンツを好まない
+* 画像には常に[alt属性](http://www.w3schools.com/tags/att_img_alt.asp)をつける
+* リンクには説明的なテキストを使う： _悪い例_：Google SEOスターターガイドは[こちらをクリック](http://static.googleusercontent.com/media/www.google.com/en/us/webmasters/docs/search-engine-optimization-starter-guide.pdf) 。 _良い例_：[Google SEOスターターガイド](http://static.googleusercontent.com/media/www.google.com/en/us/webmasters/docs/search-engine-optimization-starter-guide.pdf)をダウンロード。
+* もしページを削除した場合は、適切で関連のある場所へリダイレクトを作成する。[CloudCannon](http://cloudcannon)で[301 redirects](http://docs.cloudcannon.com/#common_tasks6_301_redirectshtml)を使うことで可能です。
