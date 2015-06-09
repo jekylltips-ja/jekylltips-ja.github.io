@@ -59,6 +59,24 @@ title: About
 {% endhighlight %}
 
 他のページにも同様のことを行ってください。
+見出し用のHTMLとFront Matterを追加するようにしてください。
+`services.html`の上部はこのような感じになります：
+
+{% highlight html %}
+{% raw %}
+---
+layout: default
+title: Services
+---
+<section class="bg-dark">
+  <div class="text-center">
+    <h1>Services</h1>
+  </div>
+</section>
+...
+{% endraw %}
+{% endhighlight %}
+
 
 次はナビゲーションを機能させる必要があります。正しいページにリンクされており、ナビゲーションで現在のページがハイライトされるようにしたいですね。
 これは少しだけ複雑になってしまうので、ナビゲーション専用のページを作って、そのなかに記述しましょう。
