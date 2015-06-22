@@ -55,7 +55,7 @@ description: A blog with the latest trends and news in Web Design
 {% endraw %}
 {% endhighlight %}
 
-もしあなたが[CloudCannon](http://cloudcannon)をお使いなら、技術に詳しくないユーザーでもFront Matterを簡単に変更できます：
+もしあなたが[CloudCannon](http://cloudcannon.com)をお使いなら、技術に詳しくないユーザーでもFront Matterを簡単に変更できます：
 
 ![Front Matter on CloudCannon](/img/tutorials/seo/front_matter.png)
 
@@ -239,4 +239,4 @@ url: http://mysite.com
 * 検索エンジンは重複したコンテンツを好まない
 * 画像には常に[alt属性](http://www.w3schools.com/tags/att_img_alt.asp)をつける
 * リンクには説明的なテキストを使う： _悪い例_：Google SEOスターターガイドは[こちらをクリック](http://static.googleusercontent.com/media/www.google.com/en/us/webmasters/docs/search-engine-optimization-starter-guide.pdf) 。 _良い例_：[Google SEOスターターガイド](http://static.googleusercontent.com/media/www.google.com/en/us/webmasters/docs/search-engine-optimization-starter-guide.pdf)をダウンロード。
-* もしページを削除した場合は、適切で関連のある場所へリダイレクトを作成する。[CloudCannon](http://cloudcannon)で[301 redirects](http://docs.cloudcannon.com/#common_tasks6_301_redirectshtml)を使うことで可能です。
+* もしページを削除した場合は、適切で関連のある場所へリダイレクトを作成する。[CloudCannon](http://cloudcannon.com)で[301 redirects](http://docs.cloudcannon.com/#common_tasks6_301_redirectshtml)を使うことで可能です。
